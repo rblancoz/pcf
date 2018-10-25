@@ -20,11 +20,11 @@ var abp = abp || {};
 
     abp.auth.getToken = function () {
         return abp.utils.getCookieValue(abp.auth.tokenCookieName);
-    }
+    };
 
     abp.auth.clearToken = function () {
         abp.auth.setToken();
-    }
+    };
 
     /* UTILS ***************************************************/
 
@@ -101,7 +101,7 @@ var abp = abp || {};
         }
 
         document.cookie = cookieValue;
-    }
+    };
 
     /* SECURITY ***************************************/
     abp.security = abp.security || {};

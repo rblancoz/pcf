@@ -14,7 +14,7 @@ var abp = abp || {};
         var cookieAuth = new SwaggerClient.ApiKeyAuthorization(abp.auth.tokenHeaderName, 'Bearer ' + authToken, 'header');
         swaggerUi.api.clientAuthorizations.add('bearerAuth', cookieAuth);
         return true;
-    }
+    };
 
     abp.swagger.addCsrfToken = function () {
         var csrfToken = abp.security.antiForgery.getToken();
@@ -24,7 +24,7 @@ var abp = abp || {};
         var csrfCookieAuth = new SwaggerClient.ApiKeyAuthorization(abp.security.antiForgery.tokenHeaderName, csrfToken, 'header');
         swaggerUi.api.clientAuthorizations.add(abp.security.antiForgery.tokenHeaderName, csrfCookieAuth);
         return true;
-    }
+    };
 
     function loginUserInternal(tenantId, callback) {
         var usernameOrEmailAddress = document.getElementById('userName').value;
@@ -59,8 +59,7 @@ var abp = abp || {};
         xhr.setRequestHeader('Abp.TenantId', tenantId);
         xhr.setRequestHeader('Content-type', 'application/json');
         xhr.send("{" + "usernameOrEmailAddress:'" + usernameOrEmailAddress + "'," + "password:'" + password + "'}");
-    };
-
+    }
     abp.swagger.login = function (callback) {
         //Get TenantId first
         var tenancyName = document.getElementById('tenancyName').value;
@@ -89,13 +88,13 @@ var abp = abp || {};
 
     abp.swagger.logout = function () {
         abp.auth.clearToken();
-    }
+    };
 
     abp.swagger.closeAuthDialog = function () {
         if (document.getElementById('abp-auth-dialog')) {
             document.getElementsByClassName("swagger-ui")[1].removeChild(document.getElementById('abp-auth-dialog'));
         }
-    }
+    };
 
     abp.swagger.openAuthDialog = function (loginCallback) {
         abp.swagger.closeAuthDialog();
@@ -173,7 +172,7 @@ var abp = abp || {};
             abp.swagger.login(loginCallback);
         };
         authBtnWrapper.appendChild(authorizeButton);
-    }
+    };
 
     function createInput(container, id, title, type) {
         var wrapper = document.createElement('div');
